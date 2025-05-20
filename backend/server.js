@@ -10,7 +10,12 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "*", // allow Vite dev server
+  origin: [
+    "http://localhost:5173",                         // for local dev
+    "https://email-draft-assistant.netlify.app"      // for production
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
 }));
 
 
